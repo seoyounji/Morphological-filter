@@ -1,0 +1,11 @@
+A = imread('fingerprint-noisy.tif');
+figure, imshow(A);
+mask = ones(3,3);
+eroded = imerode(A,mask);
+figure, imshow(eroded);
+opening = imdilate(eroded,mask);
+figure, imshow(opening);
+dilation = imdilate(opening,mask);
+figure, imshow(dilation);
+closing = imerode(dilation,mask);
+figure, imshow(closing);
